@@ -22,8 +22,8 @@ const (
 	// REDIS CONFIGS
 	Host       = "127.0.0.1"
 	Port       = "6379"
-	PubChannel = "IN"
-	SubChannel = "OUT"
+	PubChannel = "in"
+	SubChannel = "out"
 	// A ping is set to the server with this period to test for the health of
 	// the connection and server.
 	HealthCheckPeriod = time.Minute
