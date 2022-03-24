@@ -28,7 +28,7 @@ require (
 	google.golang.org/grpc v1.44.0 // indirect
 )
 
-require github.com/peaqnetwork/peaq-network-ev-charging-message-format/golang v0.0.0-20220323123012-4f5ec63c3f31
+require github.com/peaqnetwork/peaq-network-ev-charging-message-format/golang v0.0.0-20220310095225-6ed453e70651
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect

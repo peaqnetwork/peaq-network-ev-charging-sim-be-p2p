@@ -710,6 +710,8 @@ github.com/peaqnetwork/peaq-network-ev-charging-message-format/golang v0.0.0-202
 github.com/peaqnetwork/peaq-network-ev-charging-message-format/golang v0.0.0-20220307125137-adf3de18f838/go.mod h1:F/v0nFtaybImAcI7i4PENzCSo+CUgb/y2A2vhSmG7Vk=
 github.com/peaqnetwork/peaq-network-ev-charging-message-format/golang v0.0.0-20220309203236-eeb39b39341e h1:Kf6qRfgIt9+62kVg3kmFJU0KcgNoaKq3mrboR4h11eI=
 github.com/peaqnetwork/peaq-network-ev-charging-message-format/golang v0.0.0-20220309203236-eeb39b39341e/go.mod h1:F/v0nFtaybImAcI7i4PENzCSo+CUgb/y2A2vhSmG7Vk=
+github.com/peaqnetwork/peaq-network-ev-charging-message-format/golang v0.0.0-20220310095225-6ed453e70651 h1:FqNuXtGAZYtzitKqewzEPPXOUAGMfkt/9u/hU8NcfQA=
+github.com/peaqnetwork/peaq-network-ev-charging-message-format/golang v0.0.0-20220310095225-6ed453e70651/go.mod h1:F/v0nFtaybImAcI7i4PENzCSo+CUgb/y2A2vhSmG7Vk=
 github.com/peaqnetwork/peaq-network-ev-charging-message-format/golang v0.0.0-20220323123012-4f5ec63c3f31 h1:NWY7iWhwghw3d4h7dXgldM0JtI2+PuwObYKkFhNrSJQ=
 github.com/peaqnetwork/peaq-network-ev-charging-message-format/golang v0.0.0-20220323123012-4f5ec63c3f31/go.mod h1:F/v0nFtaybImAcI7i4PENzCSo+CUgb/y2A2vhSmG7Vk=
 github.com/pelletier/go-toml v1.2.0/go.mod h1:5z9KED0ma1S8pY6P1sdut58dfprrGBbd/94hg7ilaic=
