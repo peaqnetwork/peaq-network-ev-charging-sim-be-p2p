@@ -15,36 +15,31 @@ spec:
           name: ""
           resources:
             requests:
-              cpu: 100m
+              cpu: 50m
               memory: 256Mi
           workingDir: /workspace/source
         steps:
-        - env:
-          - name: sk
-              valueFrom:
-                secretKeyRef:
-                  key: sk
-                  name: secret-sim-be-p2p
-          - image: uses:jenkins-x/jx3-pipeline-catalog/tasks/git-clone/git-clone-pr.yaml@versionStream
-            name: ""
-            resources: {}
-          - name: jx-variables
-            resources: {}
-          - name: check-registry
-            resources: {}
-          - name: build-container-build
-            resources: {}
-            script: |
-              #!/busybox/sh
-              source .jx/variables.sh
-              echo "env variable"
-              env
-              echo $sk
-              echo "print var"
-              cp /tekton/creds-secrets/tekton-container-registry-auth/.dockerconfigjson /kaniko/.docker/config.json
-              /kaniko/executor $KANIKO_FLAGS --context=/workspace/source --dockerfile=${DOCKERFILE_PATH:-Dockerfile} --destination=$PUSH_CONTAINER_REGISTRY/$DOCKER_REGISTRY_ORG/$APP_NAME:$VERSION  
-            #- name: promote-jx-preview
-            #  resources: {}
+        - image: uses:jenkins-x/jx3-pipeline-catalog/tasks/git-clone/git-clone-pr.yaml@versionStream
+          name: ""
+          resources: {}
+        - name: jx-variables
+          resources: {}
+        - name: check-registry
+          resources: {}
+        - name: build-container-build
+          resources: {}
+          script: |
+            #!/busybox/sh
+            source .jx/variables.sh
+            echo "env variable"
+            env
+            echo "print var"
+            cp /tekton/creds-secrets/tekton-container-registry-auth/.dockerconfigjson /kaniko/.docker/config.json
+            /kaniko/executor $KANIKO_FLAGS --context=/workspace/source --dockerfile=${DOCKERFILE_PATH:-Dockerfile} --destination=$PUSH_CONTAINER_REGISTRY/$DOCKER_REGISTRY_ORG/$APP_NAME:$VERSION
+            /kaniko/executor $KANIKO_FLAGS --context=/workspace/source --dockerfile=${DOCKERFILE_PATH:-Dockerfile} --destination=$PUSH_CONTAINER_REGISTRY/$DOCKER_REGISTRY_ORG/$APP_NAME:latest
+       
+        #- name: promote-jx-preview
+        #  resources: {}
   podTemplate: {}
   serviceAccountName: tekton-bot
   timeout: 12h0m0s

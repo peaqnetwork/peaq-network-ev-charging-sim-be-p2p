@@ -19,12 +19,6 @@ spec:
               memory: 600Mi
           workingDir: /workspace/source
         steps:
-        - env:
-           - name: sk
-              valueFrom:
-                secretKeyRef:
-                  key: sk
-                  name: secret-sim-be-p2p
         - image: uses:jenkins-x/jx3-pipeline-catalog/tasks/git-clone/git-clone.yaml@versionStream
           name: ""
           resources: {}
