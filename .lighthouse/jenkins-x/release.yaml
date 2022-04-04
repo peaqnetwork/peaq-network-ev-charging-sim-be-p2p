@@ -20,11 +20,11 @@ spec:
           workingDir: /workspace/source
         steps:
         - env:
-           - name: sk
-              valueFrom:
-                secretKeyRef:
-                  key: username
-                  name: tekton-git
+          - name: sk
+            valueFrom:
+              secretKeyRef:
+                key: username
+                name: tekton-git
         - image: uses:jenkins-x/jx3-pipeline-catalog/tasks/git-clone/git-clone.yaml@versionStream
           name: ""
           resources: {}
@@ -45,7 +45,6 @@ spec:
             echo "print var"
             cp /tekton/creds-secrets/tekton-container-registry-auth/.dockerconfigjson /kaniko/.docker/config.json
             /kaniko/executor $KANIKO_FLAGS --context=/workspace/source --dockerfile=${DOCKERFILE_PATH:-Dockerfile} --destination=$PUSH_CONTAINER_REGISTRY/$DOCKER_REGISTRY_ORG/$APP_NAME:$VERSION
-            /kaniko/executor $KANIKO_FLAGS --context=/workspace/source --dockerfile=${DOCKERFILE_PATH:-Dockerfile} --destination=$PUSH_CONTAINER_REGISTRY/$DOCKER_REGISTRY_ORG/$APP_NAME:latest
         - name: promote-changelog
           resources: {}
         - name: promote-helm-release
