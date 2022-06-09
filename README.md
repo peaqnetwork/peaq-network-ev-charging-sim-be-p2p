@@ -1,4 +1,4 @@
-# Peaq Network EV Charging Simulator P2P
+## Peaq Network EV Charging Simulator P2P
 
 A Peer-to-Peer(p2p) application layer that enables the connection and communication between the charging simulator (provider) and the charmEV DApp (consumer). Event messages from the simulator are sent to the p2p and then forwarded to the connected peers requesting the charging service. The p2p server also published event messages from the consumer peer to the simulator (provider peer) for processing.
 
