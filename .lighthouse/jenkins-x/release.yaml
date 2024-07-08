@@ -29,8 +29,8 @@ spec:
             # requests:
             #   cpu: 400m
             #   memory: 600Mi
-        - name: build-make-build
-          resources: {}
+        # - name: build-make-build
+        #   resources: {}
         - name: check-registry
           resources: {}
         - name: build-container-build
