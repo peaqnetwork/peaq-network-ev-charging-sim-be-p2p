@@ -12,5 +12,6 @@ spec:
     context: "release"
     source: "release.yaml"
     branches:
+    - ^dev$
     - ^main$
     - ^master$
