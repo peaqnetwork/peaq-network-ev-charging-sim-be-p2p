@@ -3,6 +3,8 @@
 # Uses docker build cache
 # Only re-download changed dependencies 
 FROM golang:1.17-alpine as builder
+# issue https://github.com/GoogleContainerTools/kaniko/issues/1297
+RUN rm -rf /var/run/secrets
 RUN apk update && apk upgrade --force-overwrite && \
     apk add --no-cache git
 
@@ -20,9 +22,9 @@ RUN cd cmd && CGO_ENABLED=0 GOOS=linux  go build -a -installsuffix cgo -o ../out
 
 # Run container
 FROM alpine:latest
-
+# issue https://github.com/GoogleContainerTools/kaniko/issues/1297
+RUN rm -rf /var/run/secrets
 # Update and upgrade packages in a writable environment
-
 RUN apk update && apk upgrade --force-overwrite --no-cache && \ 
     apk --no-cache add ca-certificates
 
