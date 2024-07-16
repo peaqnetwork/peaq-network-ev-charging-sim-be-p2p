@@ -2,8 +2,9 @@
 # using docker's multi-stage build feature. 
 # Uses docker build cache
 # Only re-download changed dependencies 
-FROM golang:1.17-alpine as builder
-RUN apk update && apk upgrade && \
+FROM golang:latest as builder
+
+RUN apk update && apk upgrade --force-overwrite && \
     apk add --no-cache git
 
 RUN mkdir /app
@@ -20,8 +21,9 @@ RUN cd cmd && CGO_ENABLED=0 GOOS=linux  go build -a -installsuffix cgo -o ../out
 
 # Run container
 FROM alpine:latest
-
-RUN apk --no-cache add ca-certificates
+# Update and upgrade packages in a writable environment
+RUN apk update && apk upgrade --force-overwrite --no-cache && \ 
+    apk --no-cache add ca-certificates
 
 RUN mkdir /app
 WORKDIR /app/sim-be-p2p

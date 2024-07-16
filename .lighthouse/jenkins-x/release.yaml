@@ -24,13 +24,13 @@ spec:
         - name: next-version
           resources: {}
         - name: jx-variables
-          resources:
-            # override requests for the pod here
-            requests:
-              cpu: 400m
-              memory: 600Mi
-        - name: build-make-build
           resources: {}
+            # override requests for the pod here
+            # requests:
+            #   cpu: 400m
+            #   memory: 600Mi
+        # - name: build-make-build
+        #   resources: {}
         - name: check-registry
           resources: {}
         - name: build-container-build
@@ -39,8 +39,8 @@ spec:
           resources: {}
         - name: promote-helm-release
           resources: {}
-        - name: promote-jx-promote
-          resources: {}
+        # - name: promote-jx-promote
+        #   resources: {}
   podTemplate: {}
   serviceAccountName: tekton-bot
   timeout: 12h0m0s
